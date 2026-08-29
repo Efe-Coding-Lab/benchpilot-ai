@@ -1,0 +1,17 @@
+flowchart LR
+  A[Requirements] --> B[Test-plan generator]
+  B --> K1["anomaly-followup: 3"]
+  K1 --> Z[Execution & measurements]
+  B --> K2["boundary: 6"]
+  K2 --> Z[Execution & measurements]
+  B --> K3["environmental: 5"]
+  K3 --> Z[Execution & measurements]
+  B --> K4["fault-injection: 2"]
+  K4 --> Z[Execution & measurements]
+  B --> K5["negative: 3"]
+  K5 --> Z[Execution & measurements]
+  B --> K6["nominal: 3"]
+  K6 --> Z[Execution & measurements]
+  Z --> M[ML anomaly detection]
+  M --> R[Automated report]
+  M --> B

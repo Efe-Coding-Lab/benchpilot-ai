@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BenchPilot Validation Report</title>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; margin: 0; color: #172033; background: #f5f7fb; }
+    main { max-width: 1100px; margin: 32px auto; padding: 0 24px 60px; }
+    h1,h2,h3 { color: #101828; }
+    .muted { color: #667085; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
+    .card { background: white; border: 1px solid #e4e7ec; border-radius: 12px; padding: 18px; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+    .metric { font-size: 28px; font-weight: 750; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th,td { padding: 9px 10px; border-bottom: 1px solid #eaecf0; text-align: left; vertical-align: top; }
+    th { background: #f9fafb; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #eef2ff; font-size: 12px; }
+    .plan { margin-bottom: 12px; }
+    .priority { font-weight: 700; }
+    img { max-width: 100%; }
+    code { background:#f2f4f7; padding:2px 5px; border-radius:4px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>BenchPilot Validation Report</h1>
+  <p class="muted">Generated 2026-08-29T01:46:21.747372+00:00 · automated analytics → planning → DB maintenance → reporting</p>
+
+  <section class="grid">
+    <div class="card"><div class="muted">Measurements</div><div class="metric">240</div></div>
+    <div class="card"><div class="muted">Pass rate</div><div class="metric">97.9%</div></div>
+    <div class="card"><div class="muted">Failures</div><div class="metric">5</div></div>
+    <div class="card"><div class="muted">ML anomalies</div><div class="metric">12</div></div>
+    <div class="card"><div class="muted">Planned tests</div><div class="metric">22</div></div>
+  </section>
+
+  <h2>Signal health</h2>
+  <div class="card">
+    <img alt="Signal health chart" src="data:image/png;base64,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3cPDQ8OGDVOvXr10+vTpa1oFcy0yMzP13nvv6f7777e3eXt7a8qUKXJzc1NSUpJ++uknS44NAEBJxk14AQDAVT3zzDO65557NHHiRMXExOjs2bM6fvy4li9fruXLl+u1115TdHS0PvzwQ3l7exe6v4SEBPs9YQYNGpSn32azafDgwdq4ceNV9/PYY4/J19c3T3tISIgkaf/+/flud+LECc2ZM0ebN2/W8ePHdf78eRlj7P2JiYn6448/5OXlVei5FFVkZKTq1KlTYK2pqak6ffq0PTRZtmyZzp07p9atW6tly5b57rNz585yc3PTnj17dPTo0Tz36Pnuu++0bNky7d27V+np6crKypIkHTx4UJK0ffv2XOGXo/j4+KhPnz552qtWrapatWpp79692r9/vxo3buzwYwMAUJIRwAAAgEK1aNFCX375pbKysrRr1y5t27ZNsbGxWrp0qU6fPq2ZM2cqJSVF//73vwvdV2JioqTLKzWqVq2a75hmzZoVup+6devm216lShVJ0tmzZ/P0zZ8/XwMGDNC5c+cK3K8xRqdPn1ZAQEChNRRVYbVKl+vNCWB27twpSTpw4IDCwsIK3G/OSp5Dhw7ZA5icR4cXdsPbU6dOFf0ErsGdd95Z4M15q1Spor179+b7tQEA4FZHAAMAAIrM1dVVTZo0UZMmTTRgwACdOXNGAwYM0MKFC7V06VJt3LhRbdq0ueo+csKPsmXLFjjman05Clpt4+KS/xXWSUlJ6tu3ry5cuKAePXro2WefVf369eXj46NSpUopOztbrq6uki5fRuNIRan1ylU4qampki6v1jlx4kSh+//999/tf37xxRe1evVq+fn5aezYsYqIiFC1atXsK3refPNNvf322w4/xxxXWwWVc75XnisAALcL7gEDAACum4+Pj2bMmGH/xbqwy4YkqUyZMpLyX6GSw4oVEnPmzNGFCxcUHBysr7/+WqGhoapYsaJKlbr871FWrQi5Hjnv0eOPPy5jTKGviIgISdKlS5f05ZdfSrr8GOiBAweqTp06uS6nKknnCQDA7YQABgAA3BAfHx9VqlRJkor0COd69epJuvxo6+PHj+c7ZseOHQ6rL8eBAwckSWFhYfmukilKeFRcGjVqJEn68ccfr2m7lJQU+wqjtm3b5jvmes6zoEuKAABA0RHAAACAAp08eVLZ2dlXHZOYmGi/TKage51cqX79+goKCpIkffbZZ/mOmTZt2rUVWgSlS5eWJB09ejRPnzFG48ePd/gxr1enTp3k5eWlHTt2FHovlyvlnKOU/3muWbNG27Ztu+Z6cvZ75aVOAADg2hDAAACAAs2ZM0cNGjTQ+++/r8OHD+fqM8Zo5cqV6tKli4wxCgwMVGRkZKH7tNls9kdFv/XWW5o/f76978KFC3ruuee0ZcsWx56IpPDwcEnSvHnztHTpUnv72bNnNWjQIG3evNnhx7xelStX1uuvvy5J6t69u2bNmqVLly7lGnP69GnNmjVLL730kr3Nx8dHTZo0kSQNHz5caWlp9r64uDj16tVLnp6e11xPzuOzN23adNUbGAMAgIIRwAAAgALZbDYlJCRo+PDhqlGjhvz9/dWyZUs1adJEFStWVFRUlBITE+Xv76+FCxcW+dHNQ4YMUc+ePXXhwgV1795dNWvWVHBwsKpUqaLJkyfrnXfekVTwDXWvx0MPPaSIiAhdunRJnTp1Uu3atdWyZUtVrVpVM2fO1CeffOKwYznCq6++qpdeeklnzpxRdHS0ypcvrxYtWqh169YKCgqSn5+foqOj84RV48aNk6urq5YvX67q1aurefPmql27ttq1a6eAgAD99a9/veZaOnTooCpVqujgwYOqUaOG2rRpo4iICPu9ZwAAQOEIYAAAQIGeeuoprV27Vm+88Yb9niI//vijEhIS5O7urvbt22vChAlKTEws0qOjc9hsNn311VeaMmWKmjRpopSUFO3fv19t2rRRbGys7r//fklSuXLlHHYuLi4uWrZsmV555RXVqlVLhw8f1sGDB9WuXTutWbNG/fr1c9ixHMFms2ncuHHavHmzBgwYoCpVqujnn3/W9u3blZmZqcjISE2aNElffPFFru06dOig2NhY3XffffYAzcPDQ6+//ro2bNhw1acUFcTb21vfffedunXrJk9PT/3www/6/vvv9f333zvqdAEAuOXZDM8BBAAAJcy8efPUo0cPNWvW7LruWQIAAFDSsAIGAACUODk34S3oST4AAAA3GwIYAADgFOPGjdP27dtztZ05c0bPPPOMVq1aJTc3Nz311FNOqg4AAMCxuAQJAAA4RcuWLfXDDz+ocuXKCgoK0vnz55WQkKCLFy/KxcVFkydP1pAhQ5xdJgAAgEMQwAAAAKeYO3eu5syZo23btunUqVO6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9cADD6hatWry8PBQlSpVdO+99+qTTz6R9L9L9STp+++/z/X5vPKSOTc3N3Xt2lXr16/X/v37Hf8GAABwhVLOLgAAANy406dPq23bttq9e7dCQ0M1ZMgQpaena/HixWrXrp3mzZunrl272sd/+umniomJUdu2bfXggw/q999/V1xcnF599VVt2bIl32DjSl27dlVaWpoWL16sLl26qGnTpgWO7d27tzZv3qwHHnhArq6umjt3roYNGyY3NzcNHjy40HObOnWqnn76afn7++vhhx9WxYoVdezYMW3evFkLFy5Ut27d7GO//fZbPfbYYzLGqHPnzqpXr55OnDihTZs26bPPPlPnzp0lScYYPfroo1q8eLHq1q2rYcOGKSMjQ998840eeughTZw4Uc8//3yeWubNm6dVq1apU6dOevrpp5Weni5JunDhgqKiohQXF6emTZtq4MCByszM1NKlS9WlSxdNmjRJf/3rXws919TUVG3fvl0dOnSQi8vN/e9kEydO1HfffaeePXuqY8eO+s9//qP33ntPGzdu1Nq1a3OFSEuWLFGPHj3k4uKiLl26qEaNGvr555/14YcfauXKldq0aZPKly8vSVq6dKk6d+4sX19fdenSRf7+/kpJSdHOnTs1e/ZsPfnkkwoKCtLIkSM1evRoBQYGqn///vZj/fmzGhISomnTpmnNmjW64447iuOtAQDcpghgAAAoYfbv369Ro0bl25eUlJRv+zPPPKPdu3fr008/1aBBg+ztY8aMUcuWLfXkk08qKipKnp6ekqQRI0Zo8uTJcnV1tY81xmjQoEGaPn26NmzYoNDQ0AJrvDKA6dq1a65fcP/s8OHD2rVrl8qVKydJeu6559SwYUNNmDChSAHMtGnT5O7urh07dqhy5cq5+q5cHXH8+HFFR0fLzc1N69atU7NmzfLUkWP27NlavHixwsPDtWrVKrm7u0uSXn31VbVo0UIvv/yyunTpotq1a+fax4oVK7Ry5Urdd999udrfeustxcXF6Y033tDo0aPtqy/Onj2r9u3b64UXXtAjjzyiatWqXfVc4+PjlZ2drRYtWhT6vtyo9957T2lpaUUe37Vr16sGbX+2cuVKbdmyRY0bN5Z0+fPVt29fffXVV/rggw/0wgsvSLr8NezXr5/8/Py0YcMGBQYG2vcxZ84c9e7dW2+++aYmTZokSZo+fbqM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">
+  </div>
+
+  <h2>Suspicious tests</h2>
+  <div class="card">
+    <table><thead><tr><th>Test</th><th>Signal</th><th>Runs</th><th>Failures</th><th>Anomalies</th><th>Flakiness</th><th>Suspicion</th></tr></thead>
+    <tbody><tr><td>pll_lock_time</td><td>lock_ms</td><td>80</td><td>3</td><td>4</td><td>0.075</td><td>0.0469</td></tr><tr><td>adc_reference</td><td>vref</td><td>80</td><td>2</td><td>4</td><td>0.05</td><td>0.0363</td></tr><tr><td>spi_high_level</td><td>voh</td><td>80</td><td>0</td><td>4</td><td>0.0</td><td>0.015</td></tr></tbody></table>
+  </div>
+
+  <h2>Automated recommendations</h2>
+  <div class="card"><ul><li>Prioritize boundary and environmental regressions for signals with repeated range failures.</li><li>Re-run ML-flagged measurements with controlled temperature and supply voltage to separate DUT faults from bench noise.</li></ul></div>
+
+  <h2>Risk-ranked test plan</h2>
+  
+  <div class="card plan">
+    <span class="tag">environmental</span> <span class="priority">P100</span>
+    <h3>PLL lock time — environmental corner 1</h3>
+    <p>Validate the requirement under the specified operating context (temperature=-40 °C, supply=3 V).</p>
+    <ol><li>Condition the setup to temperature=-40 °C, supply=3 V.</li><li>Wait for stabilization and record the condition.</li><li>Repeat nominal and boundary checks for lock_ms.</li></ol>
+    <p><strong>Expected:</strong> lock_ms remains between 0 and 8 ms at temperature=-40 °C, supply=3 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">environmental</span> <span class="priority">P100</span>
+    <h3>PLL lock time — environmental corner 2</h3>
+    <p>Validate the requirement under the specified operating context (temperature=125 °C, supply=3 V).</p>
+    <ol><li>Condition the setup to temperature=125 °C, supply=3 V.</li><li>Wait for stabilization and record the condition.</li><li>Repeat nominal and boundary checks for lock_ms.</li></ol>
+    <p><strong>Expected:</strong> lock_ms remains between 0 and 8 ms at temperature=125 °C, supply=3 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">fault-injection</span> <span class="priority">P100</span>
+    <h3>PLL lock time — fault injection 1</h3>
+    <p>Exercise diagnostic coverage for the declared fault: interrupted reference clock for 2 ms.</p>
+    <ol><li>Inject or simulate fault: interrupted reference clock for 2 ms.</li><li>Capture DUT response, timing, and recovery behavior.</li><li>Remove the fault and verify the system returns to the baseline state.</li></ol>
+    <p><strong>Expected:</strong> The fault is detected or safely contained, with deterministic recovery and traceable evidence.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">boundary</span> <span class="priority">P100</span>
+    <h3>PLL lock time — lower specification boundary</h3>
+    <p>Boundary-value testing finds quantization, calibration, and comparator errors that nominal tests miss.</p>
+    <ol><li>Sweep lock_ms toward the lower limit from inside the valid range.</li><li>Hold at 0.16 ms, then at 0 ms.</li><li>Repeat across three independent runs.</li></ol>
+    <p><strong>Expected:</strong> Values at or above 0 ms pass; measurement uncertainty is recorded.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">nominal</span> <span class="priority">P100</span>
+    <h3>PLL lock time — nominal operating point</h3>
+    <p>Establish a clean reference result before stressing the requirement.</p>
+    <ol><li>Configure the DUT and bench for lock_ms measurement.</li><li>Drive the target near 4 ms.</li><li>Capture at least 20 repeated samples and timestamps.</li></ol>
+    <p><strong>Expected:</strong> Every stable sample remains between 0 and 8 ms.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">negative</span> <span class="priority">P100</span>
+    <h3>PLL lock time — out-of-range fault detection</h3>
+    <p>A validation flow should verify that invalid behavior is detected rather than silently accepted.</p>
+    <ol><li>Inject one sample below 0 ms and one above 8 ms using a safe simulator or mocked source.</li><li>Run the same parser and validation pipeline used for normal data.</li><li>Confirm failure classification and report traceability.</li></ol>
+    <p><strong>Expected:</strong> Both injected violations are marked FAIL and appear in the generated report.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">boundary</span> <span class="priority">P100</span>
+    <h3>PLL lock time — upper specification boundary</h3>
+    <p>Upper-edge behavior can reveal saturation, thermal drift, or arithmetic overflow.</p>
+    <ol><li>Sweep lock_ms toward the upper limit from inside the valid range.</li><li>Hold at 7.84 ms, then at 8 ms.</li><li>Repeat across three independent runs.</li></ol>
+    <p><strong>Expected:</strong> Values at or below 8 ms pass; measurement uncertainty is recorded.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-PLL-004</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">fault-injection</span> <span class="priority">P95</span>
+    <h3>ADC reference voltage accuracy — fault injection 1</h3>
+    <p>Exercise diagnostic coverage for the declared fault: simulated reference-divider drift.</p>
+    <ol><li>Inject or simulate fault: simulated reference-divider drift.</li><li>Capture DUT response, timing, and recovery behavior.</li><li>Remove the fault and verify the system returns to the baseline state.</li></ol>
+    <p><strong>Expected:</strong> The fault is detected or safely contained, with deterministic recovery and traceable evidence.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">negative</span> <span class="priority">P92</span>
+    <h3>ADC reference voltage accuracy — out-of-range fault detection</h3>
+    <p>A validation flow should verify that invalid behavior is detected rather than silently accepted.</p>
+    <ol><li>Inject one sample below 3.2 V and one above 3.4 V using a safe simulator or mocked source.</li><li>Run the same parser and validation pipeline used for normal data.</li><li>Confirm failure classification and report traceability.</li></ol>
+    <p><strong>Expected:</strong> Both injected violations are marked FAIL and appear in the generated report.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">environmental</span> <span class="priority">P90</span>
+    <h3>ADC reference voltage accuracy — environmental corner 1</h3>
+    <p>Validate the requirement under the specified operating context (temperature=-40 °C, supply=3 V).</p>
+    <ol><li>Condition the setup to temperature=-40 °C, supply=3 V.</li><li>Wait for stabilization and record the condition.</li><li>Repeat nominal and boundary checks for vref.</li></ol>
+    <p><strong>Expected:</strong> vref remains between 3.2 and 3.4 V at temperature=-40 °C, supply=3 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">environmental</span> <span class="priority">P90</span>
+    <h3>ADC reference voltage accuracy — environmental corner 2</h3>
+    <p>Validate the requirement under the specified operating context (temperature=125 °C, supply=3.6 V).</p>
+    <ol><li>Condition the setup to temperature=125 °C, supply=3.6 V.</li><li>Wait for stabilization and record the condition.</li><li>Repeat nominal and boundary checks for vref.</li></ol>
+    <p><strong>Expected:</strong> vref remains between 3.2 and 3.4 V at temperature=125 °C, supply=3.6 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">boundary</span> <span class="priority">P88</span>
+    <h3>ADC reference voltage accuracy — lower specification boundary</h3>
+    <p>Boundary-value testing finds quantization, calibration, and comparator errors that nominal tests miss.</p>
+    <ol><li>Sweep vref toward the lower limit from inside the valid range.</li><li>Hold at 3.204 V, then at 3.2 V.</li><li>Repeat across three independent runs.</li></ol>
+    <p><strong>Expected:</strong> Values at or above 3.2 V pass; measurement uncertainty is recorded.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">boundary</span> <span class="priority">P88</span>
+    <h3>ADC reference voltage accuracy — upper specification boundary</h3>
+    <p>Upper-edge behavior can reveal saturation, thermal drift, or arithmetic overflow.</p>
+    <ol><li>Sweep vref toward the upper limit from inside the valid range.</li><li>Hold at 3.396 V, then at 3.4 V.</li><li>Repeat across three independent runs.</li></ol>
+    <p><strong>Expected:</strong> Values at or below 3.4 V pass; measurement uncertainty is recorded.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">nominal</span> <span class="priority">P80</span>
+    <h3>ADC reference voltage accuracy — nominal operating point</h3>
+    <p>Establish a clean reference result before stressing the requirement.</p>
+    <ol><li>Configure the DUT and bench for vref measurement.</li><li>Drive the target near 3.3 V.</li><li>Capture at least 20 repeated samples and timestamps.</li></ol>
+    <p><strong>Expected:</strong> Every stable sample remains between 3.2 and 3.4 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-ADC-001</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">negative</span> <span class="priority">P67</span>
+    <h3>SPI output-high voltage — out-of-range fault detection</h3>
+    <p>A validation flow should verify that invalid behavior is detected rather than silently accepted.</p>
+    <ol><li>Inject one sample below 2.6 V and one above 3.45 V using a safe simulator or mocked source.</li><li>Run the same parser and validation pipeline used for normal data.</li><li>Confirm failure classification and report traceability.</li></ol>
+    <p><strong>Expected:</strong> Both injected violations are marked FAIL and appear in the generated report.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-SPI-007</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">anomaly-followup</span> <span class="priority">P66</span>
+    <h3>Closed-loop follow-up — adc_reference / vref</h3>
+    <p>Generated from observed failures/anomalies so the next validation cycle targets real bench behavior.</p>
+    <ol><li>Repeat the suspicious test for 30 iterations with identical stimulus.</li><li>Repeat at low, nominal, and high declared environmental contexts.</li><li>Compare value distribution, duration, and anomaly score against the previous run.</li><li>If the issue reproduces, isolate bench, DUT, and software variables one at a time.</li></ol>
+    <p><strong>Expected:</strong> The behavior becomes reproducible enough to classify as DUT defect, bench artifact, or flaky test.</p>
+    <p class="muted">Source: closed-loop · Requirement: OBSERVED:adc_reference</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">anomaly-followup</span> <span class="priority">P66</span>
+    <h3>Closed-loop follow-up — pll_lock_time / lock_ms</h3>
+    <p>Generated from observed failures/anomalies so the next validation cycle targets real bench behavior.</p>
+    <ol><li>Repeat the suspicious test for 30 iterations with identical stimulus.</li><li>Repeat at low, nominal, and high declared environmental contexts.</li><li>Compare value distribution, duration, and anomaly score against the previous run.</li><li>If the issue reproduces, isolate bench, DUT, and software variables one at a time.</li></ol>
+    <p><strong>Expected:</strong> The behavior becomes reproducible enough to classify as DUT defect, bench artifact, or flaky test.</p>
+    <p class="muted">Source: closed-loop · Requirement: OBSERVED:pll_lock_time</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">anomaly-followup</span> <span class="priority">P65</span>
+    <h3>Closed-loop follow-up — spi_high_level / voh</h3>
+    <p>Generated from observed failures/anomalies so the next validation cycle targets real bench behavior.</p>
+    <ol><li>Repeat the suspicious test for 30 iterations with identical stimulus.</li><li>Repeat at low, nominal, and high declared environmental contexts.</li><li>Compare value distribution, duration, and anomaly score against the previous run.</li><li>If the issue reproduces, isolate bench, DUT, and software variables one at a time.</li></ol>
+    <p><strong>Expected:</strong> The behavior becomes reproducible enough to classify as DUT defect, bench artifact, or flaky test.</p>
+    <p class="muted">Source: closed-loop · Requirement: OBSERVED:spi_high_level</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">environmental</span> <span class="priority">P65</span>
+    <h3>SPI output-high voltage — environmental corner 1</h3>
+    <p>Validate the requirement under the specified operating context (temperature=85 °C, supply=3 V).</p>
+    <ol><li>Condition the setup to temperature=85 °C, supply=3 V.</li><li>Wait for stabilization and record the condition.</li><li>Repeat nominal and boundary checks for voh.</li></ol>
+    <p><strong>Expected:</strong> voh remains between 2.6 and 3.45 V at temperature=85 °C, supply=3 V.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-SPI-007</p>
+  </div>
+  
+  <div class="card plan">
+    <span class="tag">boundary</span> <span class="priority">P63</span>
+    <h3>SPI output-high voltage — lower specification boundary</h3>
+    <p>Boundary-value testing finds quantization, calibration, and comparator errors that nominal tests miss.</p>
+    <ol><li>Sweep voh toward the lower limit from inside the valid range.</li><li>Hold at 2.617 V, then at 2.6 V.</li><li>Repeat across three independent runs.</li></ol>
+    <p><strong>Expected:</strong> Values at or above 2.6 V pass; measurement uncertainty is recorded.</p>
+    <p class="muted">Source: deterministic · Requirement: REQ-SPI-007</p>
+  </div>
+  
+
+  <h2>Database maintenance agent</h2>
+  <div class="card">
+    <p>Dialect: <code>sqlite</code></p>
+    <p>Duplicate measurement groups: <strong>0</strong></p>
+    <p>Missing indexes: <code>{}</code></p>
+    <ul><li>Schema health looks good; keep retention and query-plan checks in the CI/operations loop.</li></ul>
+  </div>
+</main>
+</body>
+</html>

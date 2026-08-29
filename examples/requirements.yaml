@@ -1,0 +1,42 @@
+project: edge-controller-validation
+requirements:
+  - id: REQ-ADC-001
+    title: ADC reference voltage accuracy
+    signal: vref
+    lower: 3.20
+    upper: 3.40
+    unit: V
+    risk: high
+    contexts:
+      - temperature_c: -40
+        supply_v: 3.0
+      - temperature_c: 125
+        supply_v: 3.6
+    faults:
+      - simulated reference-divider drift
+
+  - id: REQ-PLL-004
+    title: PLL lock time
+    signal: lock_ms
+    lower: 0.0
+    upper: 8.0
+    unit: ms
+    risk: critical
+    contexts:
+      - temperature_c: -40
+        supply_v: 3.0
+      - temperature_c: 125
+        supply_v: 3.0
+    faults:
+      - interrupted reference clock for 2 ms
+
+  - id: REQ-SPI-007
+    title: SPI output-high voltage
+    signal: voh
+    lower: 2.60
+    upper: 3.45
+    unit: V
+    risk: medium
+    contexts:
+      - temperature_c: 85
+        supply_v: 3.0

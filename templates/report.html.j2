@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }}</title>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; margin: 0; color: #172033; background: #f5f7fb; }
+    main { max-width: 1100px; margin: 32px auto; padding: 0 24px 60px; }
+    h1,h2,h3 { color: #101828; }
+    .muted { color: #667085; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
+    .card { background: white; border: 1px solid #e4e7ec; border-radius: 12px; padding: 18px; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+    .metric { font-size: 28px; font-weight: 750; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th,td { padding: 9px 10px; border-bottom: 1px solid #eaecf0; text-align: left; vertical-align: top; }
+    th { background: #f9fafb; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #eef2ff; font-size: 12px; }
+    .plan { margin-bottom: 12px; }
+    .priority { font-weight: 700; }
+    img { max-width: 100%; }
+    code { background:#f2f4f7; padding:2px 5px; border-radius:4px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>{{ title }}</h1>
+  <p class="muted">Generated {{ generated_at }} · automated analytics → planning → DB maintenance → reporting</p>
+
+  <section class="grid">
+    <div class="card"><div class="muted">Measurements</div><div class="metric">{{ analysis.total_measurements }}</div></div>
+    <div class="card"><div class="muted">Pass rate</div><div class="metric">{{ '%.1f'|format(analysis.pass_rate * 100) }}%</div></div>
+    <div class="card"><div class="muted">Failures</div><div class="metric">{{ analysis.failed_measurements }}</div></div>
+    <div class="card"><div class="muted">ML anomalies</div><div class="metric">{{ analysis.anomalous_measurements }}</div></div>
+    <div class="card"><div class="muted">Planned tests</div><div class="metric">{{ plan|length }}</div></div>
+  </section>
+
+  <h2>Signal health</h2>
+  <div class="card">
+    {% if chart_base64 %}<img alt="Signal health chart" src="data:image/png;base64,{{ chart_base64 }}">{% else %}<p>No data.</p>{% endif %}
+  </div>
+
+  <h2>Suspicious tests</h2>
+  <div class="card">
+    <table><thead><tr><th>Test</th><th>Signal</th><th>Runs</th><th>Failures</th><th>Anomalies</th><th>Flakiness</th><th>Suspicion</th></tr></thead>
+    <tbody>{% for row in analysis.top_suspicious_tests %}<tr><td>{{ row.test_name }}</td><td>{{ row.signal }}</td><td>{{ row.runs }}</td><td>{{ row.failures }}</td><td>{{ row.anomalies }}</td><td>{{ row.flakiness }}</td><td>{{ row.suspicion_score }}</td></tr>{% endfor %}</tbody></table>
+  </div>
+
+  <h2>Automated recommendations</h2>
+  <div class="card"><ul>{% for rec in analysis.recommendations %}<li>{{ rec }}</li>{% endfor %}</ul></div>
+
+  <h2>Risk-ranked test plan</h2>
+  {% for case in plan[:20] %}
+  <div class="card plan">
+    <span class="tag">{{ case.kind }}</span> <span class="priority">P{{ case.priority }}</span>
+    <h3>{{ case.title }}</h3>
+    <p>{{ case.rationale }}</p>
+    <ol>{% for step in case.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+    <p><strong>Expected:</strong> {{ case.expected }}</p>
+    <p class="muted">Source: {{ case.source }} · Requirement: {{ case.requirement_id }}</p>
+  </div>
+  {% endfor %}
+
+  <h2>Database maintenance agent</h2>
+  <div class="card">
+    <p>Dialect: <code>{{ maintenance.dialect }}</code></p>
+    <p>Duplicate measurement groups: <strong>{{ maintenance.duplicate_measurement_groups }}</strong></p>
+    <p>Missing indexes: <code>{{ maintenance.missing_indexes }}</code></p>
+    <ul>{% for item in maintenance.suggestions %}<li>{{ item }}</li>{% endfor %}</ul>
+  </div>
+</main>
+</body>
+</html>

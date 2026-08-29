@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+benchpilot.db
+*.sqlite3
+reports/*.html
+reports/*.md
+reports/*.mmd
+data/generated_*.csv
+.DS_Store
